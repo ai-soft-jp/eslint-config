@@ -1,0 +1,10 @@
+{
+  "npm.packageManager": "yarn",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "prettier.configPath": ".prettierrc",
+  "eslint.workingDirectories": [{ "mode": "auto" }]
+}
