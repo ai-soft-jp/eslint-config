@@ -9,6 +9,7 @@ export default defineConfig(
   {
     rules: {
       '@typescript-eslint/consistent-type-definitions': 'error',
+      '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false }],
       '@typescript-eslint/no-non-null-assertion': 'off',
     },
   },
