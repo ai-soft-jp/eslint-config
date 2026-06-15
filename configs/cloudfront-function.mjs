@@ -13,7 +13,6 @@ export default function cloudfront_function(...files) {
     },
     rules: {
       'no-restricted-globals': ['error', 'eval', 'Function'],
-      'import/no-unresolved': ['error', { ignore: ['^cloudfront$'] }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

@@ -5,17 +5,13 @@ import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
 
 export default defineConfig(js.configs.recommended, importPlugin.flatConfigs.recommended, prettier, {
-  settings: {
-    'import/resolver': {
-      typescript: {},
-    },
-  },
   languageOptions: {
     globals: globals.node,
     sourceType: 'module',
   },
   rules: {
     'semi': ['error', 'always'],
+    'import/no-unresolved': 'off',
     'import/order': [
       'error',
       {

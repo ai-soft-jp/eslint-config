@@ -12,14 +12,8 @@ export default defineConfig(
   importPlugin.flatConfigs.typescript,
   prettier,
   {
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
     rules: {
+      'import/no-unresolved': 'off',
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import/no-absolute-path': 'error',
       'import/no-duplicates': 'error',
