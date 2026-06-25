@@ -26,12 +26,26 @@ export default defineConfig(
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
           pathGroups: [
             {
-              pattern: '@internal/**',
-              group: 'parent',
+              pattern: 'react{,-dom,-router-dom}{,/**}',
+              group: 'builtin',
+              position: 'after',
+            },
+            {
+              pattern: 'next{,/**}',
+              group: 'external',
               position: 'before',
             },
             {
-              pattern: '**/*.css',
+              pattern: '@internal/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@/**/!(*.css)',
+              group: 'internal',
+            },
+            {
+              pattern: '{,./,../}**/*.css',
               group: 'object',
               position: 'after',
             },
