@@ -4,7 +4,7 @@ import common from './common.mjs';
 export default defineConfig(
   ...common,
   {
-    ignores: ['**/cdk.out/**/*'],
+    ignores: ['**/cdk.out/**/*', '**/cdk-integ.*/**/*', '**/*.snapshot.+(js|ts)/**/*'],
   },
   {
     rules: {
