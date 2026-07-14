@@ -13,7 +13,7 @@ export default defineConfig(
   prettier,
   {
     settings: {
-      'import-x/internal-regex': '^@(internal)?/',
+      'import-x/internal-regex': '^@/',
     },
     rules: {
       'import-x/no-deprecated': 'warn',
@@ -41,6 +41,11 @@ export default defineConfig(
             {
               pattern: 'next{,/**}',
               group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@internal/**',
+              group: 'internal',
               position: 'before',
             },
             {
