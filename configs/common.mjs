@@ -1,26 +1,35 @@
 import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
 import prettier from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
+import * as importx from 'eslint-plugin-import-x';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import * as tseslint from 'typescript-eslint';
 
 export default defineConfig(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importx.flatConfigs.recommended,
+  importx.flatConfigs.typescript,
   prettier,
   {
+    settings: {
+      'import-x/internal-regex': '^@/',
+    },
     rules: {
-      'import/no-unresolved': 'off',
-      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
-      'import/no-absolute-path': 'error',
-      'import/no-duplicates': 'error',
-      'import/no-dynamic-require': 'error',
-      'import/no-relative-packages': 'error',
-      'import/no-useless-path-segments': 'error',
-      'import/order': [
+      'import-x/no-deprecated': 'warn',
+      'import-x/no-mutable-exports': 'error',
+      'import-x/namespace': ['error', { allowComputed: true }],
+      'import-x/no-absolute-path': 'error',
+      'import-x/no-dynamic-require': 'warn',
+      'import-x/no-relative-packages': 'error',
+      'import-x/no-unresolved': 'off',
+      'import-x/no-useless-path-segments': 'error',
+      'import-x/no-webpack-loader-syntax': 'error',
+      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+      'import-x/first': 'error',
+      'import-x/newline-after-import': ['error', { considerComments: true }],
+      'import-x/no-duplicates': 'error',
+      'import-x/order': [
         'error',
         {
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
@@ -39,10 +48,6 @@ export default defineConfig(
               pattern: '@internal/**',
               group: 'internal',
               position: 'before',
-            },
-            {
-              pattern: '@/**/!(*.css)',
-              group: 'internal',
             },
             {
               pattern: '{,./,../}**/*.css',
