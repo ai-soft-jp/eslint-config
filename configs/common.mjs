@@ -18,6 +18,7 @@ export default defineConfig(
     rules: {
       'import-x/no-deprecated': 'warn',
       'import-x/no-mutable-exports': 'error',
+      'import-x/namespace': ['error', { allowComputed: true }],
       'import-x/no-absolute-path': 'error',
       'import-x/no-dynamic-require': 'warn',
       'import-x/no-relative-packages': 'error',
