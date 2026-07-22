@@ -27,7 +27,7 @@ export default defineConfig(
       'import-x/no-webpack-loader-syntax': 'error',
       'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import-x/first': 'error',
-      'import-x/newline-after-import': ['error', { considerComments: true }],
+      'import-x/newline-after-import': 'error',
       'import-x/no-duplicates': 'error',
       'import-x/order': [
         'error',
